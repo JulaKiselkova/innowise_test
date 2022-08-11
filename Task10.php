@@ -9,10 +9,12 @@ class Task10
         if ($input === 1) {
             return 1;
         } elseif ($input % 2 === 0) {
-            $newNumber = $input/2;
+            $newNumber = $input / 2;
+
             return collatz($newNumber);
         } else {
-            $newNumber = ($input*3)+1;
+            $newNumber = ($input * 3) + 1;
+
             return collatz($newNumber);
         }
     }
