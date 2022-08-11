@@ -4,18 +4,25 @@ namespace src;
 
 class Task2
 {
-    public static function main(string $date)
+    public function main(string $date): int
     {
-        if (strtotime($date) === false) {
-            throw new \InvalidArgumentException('Wrong data');
-        } else {
-            $today = date('d.m.Y');
-            $d1_ts = strtotime($today);
-            $d2_ts = strtotime($date);
-            $seconds = abs($d1_ts - $d2_ts);
-            $days = $seconds / (60 * 60 * 24);
-
-            return $days;
+        if (!$this->validDate($date)) {
+            throw new \InvalidArgumentException("main function only accepts 'DD.MM.YYYY' date format. Input was: " . $date);
         }
+        $now = date_create(date('d.m.Y'));
+        $birthday = date_create($date);
+        $diff = date_diff($birthday, $now);
+        if ($birthday > $now) {
+            return $diff->days;
+        } else {
+            return '-' . $diff->days;
+        }
+    }
+
+    public function validDate(string $date): bool
+    {
+        $dateObj = date_create_from_format('d.m.Y', $date);
+
+        return $dateObj && $dateObj->format('d.m.Y') === $date;
     }
 }
