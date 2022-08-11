@@ -8,7 +8,7 @@ class Task6
     {
         $mondayConst = 1;
         $start = "${lastYear}-${lastMonth}-01.";
-        $end = date("Y-m-t", strtotime("${year}-${month}-01."));
+        $end = date('Y-m-t', strtotime("${year}-${month}-01."));
 
         $startDate = strtotime($start);
         $endDate = strtotime($end);
@@ -16,8 +16,8 @@ class Task6
         echo $start;
         echo $end;
 
-        $startWeekDay = date("N", $startDate);
-        $endWeekDay = date("N", $endDate);
+        $startWeekDay = date('N', $startDate);
+        $endWeekDay = date('N', $endDate);
 
         if ($startWeekDay < $endWeekDay) {
             $partialWeekCount = ($mondayConst >= $startWeekDay && $mondayConst <= $endWeekDay);
@@ -26,10 +26,7 @@ class Task6
         } else {
             $partialWeekCount = ($mondayConst >= $startWeekDay || $mondayConst <= $endWeekDay);
         }
-        return floor(abs($endDate-$startDate)/(60*60*24*7))+$partialWeekCount;
+
+        return floor(abs($endDate - $startDate) / (60 * 60 * 24 * 7)) + $partialWeekCount;
     }
-}
-
-?>
-
 }
