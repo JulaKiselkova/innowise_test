@@ -4,10 +4,16 @@ namespace src;
 
 class Task7
 {
-    public static function main(array $arr, int $position)
+    public function main(array $arr, int $position): array
     {
-        var_dump($arr);
+        if ($position < 0) {
+            throw new \InvalidArgumentException('position must be >= 0');
+        }
+        if (!in_array($position, range(0, count($arr) - 1))) {
+            throw new \InvalidArgumentException('Given array has no such position');
+        }
         array_splice($arr, $position, 1);
-        var_dump($arr);
+
+        return $arr;
     }
 }
