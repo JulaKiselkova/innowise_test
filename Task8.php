@@ -9,7 +9,7 @@ class Task8
         $obj = json_decode($json, true);
         $arrOfStrings = [];
         foreach ($obj as $key => $value) {
-            if (gettype($value)!="array") {
+            if (gettype($value) != 'array') {
                 array_push($arrOfStrings, "{$key}: {$value}\n");
             } else {
                 foreach ($value as $keyInside => $valueInside) {
@@ -17,6 +17,7 @@ class Task8
                 }
             }
         }
-        return implode("", $arrOfStrings);
+
+        return implode('', $arrOfStrings);
     }
 }
