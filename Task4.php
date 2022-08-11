@@ -2,9 +2,9 @@
 
 namespace src;
 
-class Task1
+class Task4
 {
-    public static function main($input)
+    public static function main(int $input)
     {
         if (gettype($input) != 'string') {
             throw new \InvalidArgumentException('Wrong data');
