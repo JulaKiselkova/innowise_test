@@ -36,5 +36,3 @@ class Task2
         return $dateObj && $dateObj->format('d-m-Y') === $date;
     }
 }
-
-echo Task2::main('12-08-2024');
