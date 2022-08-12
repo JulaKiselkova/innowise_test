@@ -41,12 +41,3 @@ class Task8
         return $result;
     }
 }
-echo "\n";
-echo Task8::main('{
-"Title": "The Cuckoos Calling",
-"Author": "Robert Galbraith",
-"Detail": {
-"Publisher": "Little Brown"
-}
-}
-');
