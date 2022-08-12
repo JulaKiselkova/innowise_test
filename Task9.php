@@ -7,9 +7,16 @@ class Task9
     public static function main(array $arr, int $number)
     {
         foreach ($arr as $elem) {
-            if ($elem !== (int) $elem) {
+            if ($elem !== (int) $elem || $elem < 0) {
                 throw new \InvalidArgumentException('first function argument should be an array of numbers only');
             }
+        }
+        if ($number <= 0) {
+            throw new \InvalidArgumentException('less than zero');
+        }
+        echo count($arr);
+        if (count($arr) < 3) {
+            throw new \InvalidArgumentException('small array');
         }
 
         $count = count($arr) - 2;
