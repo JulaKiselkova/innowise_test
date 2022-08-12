@@ -13,7 +13,7 @@ class Task5
             return $n;
         }
 
-        return fib($n - 1) +
-            fib($n - 2);
+        return self::main($n - 1) +
+            self::main($n - 2);
     }
 }
