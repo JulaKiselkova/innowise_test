@@ -4,12 +4,12 @@ namespace src;
 
 class Task2
 {
-    public function main(string $date): int
+    public static function main(string $date): int
     {
-        if (!$this->validDate($date)) {
+        if (!Task2::validDate($date)) {
             throw new \InvalidArgumentException("main function only accepts 'DD.MM.YYYY' date format. Input was: " . $date);
         }
-        $now = date_create(date('d.m.Y'));
+        $now = date_create(date('d-m-Y'));
         $birthday = date_create($date);
         $diff = date_diff($birthday, $now);
         if ($birthday > $now) {
@@ -19,10 +19,10 @@ class Task2
         }
     }
 
-    public function validDate(string $date): bool
+    public static function validDate(string $date): bool
     {
-        $dateObj = date_create_from_format('d.m.Y', $date);
+        $dateObj = date_create_from_format('d-m-Y', $date);
 
-        return $dateObj && $dateObj->format('d.m.Y') === $date;
+        return $dateObj && $dateObj->format('d-m-Y') === $date;
     }
 }
