@@ -7,7 +7,7 @@ class Task2
     public function main(string $date): int
     {
         if (!$this->validDate($date)) {
-            throw new \InvalidArgumentException("accepts 'DD.MM.YYYY' date format);
+            throw new \InvalidArgumentException("main function only accepts 'DD.MM.YYYY' date format. Input was: " . $date);
         }
         $now = date_create(date('d.m.Y'));
         $birthday = date_create($date);
